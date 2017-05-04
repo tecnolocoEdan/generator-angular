@@ -54,7 +54,7 @@ module.exports = function (grunt) {
         tasks: ['typescript:test', 'karma']
       },<% } else { %>
       js: {
-        files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%%= yeoman.app %>/scripts/**/*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all'],
         options: {
           livereload: '<%%= connect.options.livereload %>'
@@ -65,11 +65,11 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },<% } %><% if (compass) { %>
       compass: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%%= yeoman.app %>/styles/**/*.{scss,sass}'],
         tasks: ['compass:server', 'postcss:server']
       },<% } else { %>
       styles: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
+        files: ['<%%= yeoman.app %>/styles/**/*.css'],
         tasks: ['newer:copy:styles', 'postcss']
       },<% } %>
       gruntfile: {
@@ -80,7 +80,7 @@ module.exports = function (grunt) {
           livereload: '<%%= connect.options.livereload %>'
         },
         files: [
-          '<%%= yeoman.app %>/{,*/}*.html',
+          '<%%= yeoman.app %>/**/*.html',
           '.tmp/styles/{,*/}*.css',<% if (coffee || typescript) { %>
           '.tmp/scripts/{,*/}*.js',<% } %>
           '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
